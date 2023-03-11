@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+Kind: Kustomization
+namespace: default
+
+resources:
+- mysql-deployment.yaml
+- wordpress-deployment.yaml
+
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=Password
+  - root_password=Password
+  - username=user
+
+resources:
+- my-configmap.yaml
+- mysql-deployment.yaml
+- wordpress-deployment.yaml
+- phpmyadmin.yaml
