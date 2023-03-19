@@ -7,7 +7,7 @@ resources:
 - wordpress-deployment.yaml
 
 secretGenerator:
-- name: mysql-pass
+- name: mysql-secrets
   literals:
   - password=Password
   - root_password=Password
